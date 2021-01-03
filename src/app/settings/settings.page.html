@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Recipe Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>The default recipe is a great general purpose recipe, but you may want to tweak it to suit
+    your tastes. This calculator does have its limits though, so we only allow settings that are considered
+    "valid" for any style of pizza dough.</p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <h2>
+          Hydration: {{settings.hydration}}%
+        </h2>
+
+        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.hydration" min="50"
+          step="5" snaps="true" max="80" color="primary">
+          <ion-label slot="start">50</ion-label>
+          <ion-label slot="end">80</ion-label>
+        </ion-range>
+
+        <div class="ion-text-wrap">
+          <small>
+
+            <span *ngIf="settings.hydration > 60">
+              This will be a loose, moist dough, so have plently of flour available. Works well in a
+              conventional oven so as to not dry out too much.
+            </span>
+            <span *ngIf="settings.hydration <= 60">
+              This will be a drier, easy to handle dough. It will be slightly harder to stretch, but a rolling
+              pin may help.
+            </span>
+            The default of 60% is great for home ovens. The extra moisture prevents a dry crust. 65% is
+            perfect
+            for super hot pizza ovens.
+          </small>
+        </div>
+
+      </ion-label>
+
+    </ion-item>
+    <ion-item>
+
+      <ion-label>
+        <h2>
+          Yeast: {{settings.yeast}}%
+        </h2>
+
+        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.yeast" min=".25"
+          step=".25" snaps="true" max="2" color="primary">
+          <ion-label slot="start">.25</ion-label>
+          <ion-label slot="end">2</ion-label>
+        </ion-range>
+        <div class="ion-text-wrap">
+          <small>For a slow rise over 24-48 hours, use .25-.5% yeast. In a hurry or started your dough late?
+            Go for
+            1%-1.25%. A yeast packet is 7 grams, just use it all if close.</small>
+        </div>
+      </ion-label>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>
+          Salt: {{settings.salt}}%
+        </h2>
+
+        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.salt" min=".5" step=".25"
+          snaps="true" max="4" color="primary">
+          <ion-label slot="start">.5</ion-label>
+          <ion-label slot="end">4</ion-label>
+        </ion-range>
+        <div class="ion-text-wrap">
+          <small>Salt is flavor, but as you increase, you retard your yeast. We like 2.5%
+            Keep it under 2% if you're in a hurry</small>
+        </div>
+      </ion-label>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>
+          Olive Oil: {{settings.oo}}%
+        </h2>
+
+        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.oo" min="0" step=".25"
+          snaps="true" max="3" color="primary">
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">3</ion-label>
+        </ion-range>
+        <div class="ion-text-wrap">
+          <small>Oil is completely optional, but we like it around 1.5% in our dough. EVOO is the best!
+            Add it after the flour has been fully hydrated, or the last minute or two in the mixer or while
+            kneading. Oil adds softness and flavor to the finished crust.</small>
+        </div>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

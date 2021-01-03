@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Doughball
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings']">
+        <ion-icon slot="icon-only" name="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-card-title>Dough Settings</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+
+        <h2>
+          Quantity: {{quantity}}
+        </h2>
+        <ion-item>
+          <ion-range debounce="100" (ionChange)="calc()" [(ngModel)]="quantity" min="1" max="10" step="1"
+            snaps="true" color="primary">
+            <ion-label slot="start">1</ion-label>
+            <ion-label slot="end">10</ion-label>
+          </ion-range>
+        </ion-item>
+        <h2>
+          Size: {{size}} grams <small>(300 is perfect Neapolitan)</small>
+        </h2>
+        <ion-item>
+          <ion-range debounce="100" (ionChange)="calc()" [(ngModel)]="size" min="100" step="25" snaps="true"
+            max="1000" color="primary">
+            <ion-label slot="start">100</ion-label>
+            <ion-label slot="end">1000</ion-label>
+          </ion-range>
+        </ion-item>
+
+
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-card-title>Dough Recipe <small> (Bakers %)</small> </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        Flour: {{flour}} grams (100%)
+      </ion-item>
+      <ion-item>
+        Water: {{water}} grams ({{settings.hydration}}%)
+      </ion-item>
+      <ion-item>
+        Yeast: {{yeast}} grams ({{settings.yeast}}%)
+      </ion-item>
+      <ion-item>
+        Salt: {{salt}} grams ({{settings.salt}}%)
+      </ion-item>
+      <ion-item>
+        Olive Oil: {{evoo}} grams ({{settings.oo}}%)
+      </ion-item>
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+</ion-content>
