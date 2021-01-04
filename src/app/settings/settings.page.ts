@@ -19,10 +19,10 @@ export class SettingsPage implements OnInit {
     });
   }
   saveSettings() {
-    this.settingSvc.saveSettings(this.settings);
+    return this.settingSvc.saveSettings(this.settings);
   }
   back() {
-    his.settingSvc.saveSettings(this.settings);
-    this.nav.pop();
+    this.saveSettings().then(()=> this.nav.pop())
+
   }
 }
