@@ -41,11 +41,9 @@ export class SettingsService {
     });
 
   }
-  async saveSettings(settings: any): Promise<any> {
+  async saveSettings(settings: any) {
     const val = await this.storage.set('settings', settings);
     this.settings = val;
-    this.obs.next(this.settings);
-    return this.settings;
   }
 
 

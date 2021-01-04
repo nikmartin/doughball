@@ -21,7 +21,7 @@
           Hydration: {{settings.hydration}}%
         </h2>
 
-        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.hydration" min="50"
+        <ion-range debounce="500" (ionChange)="saveSettings()" [(ngModel)]="settings.hydration" min="50"
           step="5" snaps="true" max="80" color="primary">
           <ion-label slot="start">50</ion-label>
           <ion-label slot="end">80</ion-label>
@@ -54,7 +54,7 @@
           Yeast: {{settings.yeast}}%
         </h2>
 
-        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.yeast" min=".25"
+        <ion-range debounce="500" (ionChange)="saveSettings()" [(ngModel)]="settings.yeast" min=".25"
           step=".25" snaps="true" max="2" color="primary">
           <ion-label slot="start">.25</ion-label>
           <ion-label slot="end">2</ion-label>
@@ -73,7 +73,7 @@
           Salt: {{settings.salt}}%
         </h2>
 
-        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.salt" min=".5" step=".25"
+        <ion-range debounce="500" (ionChange)="saveSettings()" [(ngModel)]="settings.salt" min=".5" step=".25"
           snaps="true" max="4" color="primary">
           <ion-label slot="start">.5</ion-label>
           <ion-label slot="end">4</ion-label>
@@ -91,7 +91,7 @@
           Olive Oil: {{settings.oo}}%
         </h2>
 
-        <ion-range debounce="100" (ionChange)="saveSettings()" [(ngModel)]="settings.oo" min="0" step=".25"
+        <ion-range debounce="500" (ionChange)="saveSettings()" [(ngModel)]="settings.oo" min="0" step=".25"
           snaps="true" max="3" color="primary">
           <ion-label slot="start">0</ion-label>
           <ion-label slot="end">3</ion-label>
